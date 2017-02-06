@@ -5,16 +5,23 @@
  */
 package utilisateurs;
 
+import articles.Article;
 import commun.ImagePanel;
+import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author sebastien
  */
-public class Membre {
+@Entity
+@XmlRootElement
+public class Membre implements Serializable {
     
 ///////////// VARIABLES //////////////////////////////   
     private static final long serialVersionUID = 1L;
@@ -25,10 +32,11 @@ public class Membre {
     private String lastname;  
     private String about;
     private ImagePanel photo;
-    private String login; 
     private String username;
     private String last_connected;
     private Role role;
+    @OneToOne
+    private Article autheur;
 
 //////////////////// CONSTRUCTEURS /////////////////////
     
@@ -36,13 +44,12 @@ public class Membre {
         
     }
 
-    public Membre(int id, String firstname, String lastname, String about, ImagePanel photo, String login, String username, String last_connected, Role role) {
+    public Membre(int id, String firstname, String lastname, String about, ImagePanel photo, String username, String last_connected, Role role) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.about = about;
         this.photo = photo;
-        this.login = login;
         this.username = username;
         this.last_connected = last_connected;
         this.role = role;
@@ -87,14 +94,6 @@ public class Membre {
 
     public void setPhoto(ImagePanel photo) {
         this.photo = photo;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getUsername() {

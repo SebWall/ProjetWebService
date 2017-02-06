@@ -5,15 +5,26 @@
  */
 package utilisateurs;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author sebastien
  */
-public class Role {
+@Entity
+@XmlRootElement
+public class Role implements Serializable {
     
     ///////////// VARIABLES //////////////////////////////   
+    @Id
     private String name;
     private String description;
+
+    public Role() {
+    }
     
     //////////////////// CONSTRUCTEURS /////////////////////
     public Role(String name, String description) {

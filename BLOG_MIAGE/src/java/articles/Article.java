@@ -6,16 +6,22 @@
 package articles;
 
 import commun.ImagePanel;
+import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 import utilisateurs.Membre;
 
 /**
  *
  * @author sebastien
  */
-public class Article {
+@Entity
+@XmlRootElement
+public class Article implements Serializable {
     
     ///////////// VARIABLES //////////////////////////////   
     private static final long serialVersionUID = 1L;
@@ -30,11 +36,14 @@ public class Article {
     private String position_long;
     private String position_lat;
     private String position_name;
+    @OneToOne(mappedBy = "autheur")
     private Membre autheur;
     private Status status;
     private Commentaire comment;
 
     //////////////////// CONSTRUCTEURS /////////////////////
+       public Article() {
+    }
     public Article(int id, String titre, String motCle, String published_on, String content, ImagePanel photo, String position_long, String position_lat, String position_name, Membre autheur, Status status, Commentaire comment) {
         this.id = id;
         this.titre = titre;

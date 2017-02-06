@@ -3,23 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package articles;
-
-import java.util.Date;
-import utilisateurs.Membre;
-
 /**
  *
  * @author sebastien
  */
-public class Commentaire {
-    
+package articles;
+
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
+import utilisateurs.Membre;
+
+
+@Entity
+@XmlRootElement
+public class Commentaire implements Serializable {  
     
  ///////////// VARIABLES //////////////////////////////   
     
+    @Id
     private String comment;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
+    @ManyToOne
     private Membre autheur;
+
+    public Commentaire() {
+    }
     
 //////////////////// CONSTRUCTEURS /////////////////////
      public Commentaire(String comment, Date date, Membre autheur) {
