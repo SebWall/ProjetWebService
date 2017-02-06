@@ -5,6 +5,7 @@
  */
 package utilisateurs;
 
+import commun.ImagePanel;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,11 +23,12 @@ public class Membre {
     private int id;
     private String firstname;  
     private String lastname;  
-    private String login;  
-    private String password;
-    private String mail;
-    private String tel;
-    private String ecole;
+    private String about;
+    private ImagePanel photo;
+    private String login; 
+    private String username;
+    private String last_connected;
+    private Role role;
 
 //////////////////// CONSTRUCTEURS /////////////////////
     
@@ -34,9 +36,19 @@ public class Membre {
         
     }
 
+    public Membre(int id, String firstname, String lastname, String about, ImagePanel photo, String login, String username, String last_connected, Role role) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.about = about;
+        this.photo = photo;
+        this.login = login;
+        this.username = username;
+        this.last_connected = last_connected;
+        this.role = role;
+    }
 
 /////// GETTER & SETTER /////////////////
-
     public int getId() {
         return id;
     }
@@ -61,6 +73,22 @@ public class Membre {
         this.lastname = lastname;
     }
 
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public ImagePanel getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(ImagePanel photo) {
+        this.photo = photo;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -69,38 +97,28 @@ public class Membre {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getMail() {
-        return mail;
+    public String getLast_connected() {
+        return last_connected;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setLast_connected(String last_connected) {
+        this.last_connected = last_connected;
     }
 
-    public String getTel() {
-        return tel;
+    public Role getRole() {
+        return role;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-
-    public String getEcole() {
-        return ecole;
-    }
-
-    public void setEcole(String ecole) {
-        this.ecole = ecole;
+    public void setRole(Role role) {
+        this.role = role;
     }
     
-
-
-}
+} 
