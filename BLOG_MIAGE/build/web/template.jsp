@@ -1,6 +1,6 @@
 <%-- 
     Document   : template
-    Created on : 12 févr. 2016, 14:46:38
+    Created on : 12 févr. 2017, 14:46:38
     Author     : sebastien
 --%>
  <%@ page language="java" contentType="text/html; charset=UTF-8"  
@@ -11,7 +11,10 @@
     <head>  
     <title>${param.title}</title>  
     <link rel="stylesheet" type="text/css"  
-        href="${pageContext.request.contextPath}/resources/style.css" />  
+        href="${pageContext.request.contextPath}/ressources/style.css" />  
+    <link rel="stylesheet" type="text/css"  
+        href="${pageContext.request.contextPath}/ressources/header-login-signup.css" />     
+   
     </head>  
     <body>  
         <jsp:include page="header.jsp"/>  
