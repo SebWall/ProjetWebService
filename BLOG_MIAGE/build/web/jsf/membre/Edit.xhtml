@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditMembreTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditMembreLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{membreController.selected.id}" title="#{bundle.EditMembreTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_firstname}" for="firstname" />
+                    <h:inputText id="firstname" value="#{membreController.selected.firstname}" title="#{bundle.EditMembreTitle_firstname}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_lastname}" for="lastname" />
+                    <h:inputText id="lastname" value="#{membreController.selected.lastname}" title="#{bundle.EditMembreTitle_lastname}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_about}" for="about" />
+                    <h:inputText id="about" value="#{membreController.selected.about}" title="#{bundle.EditMembreTitle_about}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_photo}" for="photo" />
+                    <h:inputText id="photo" value="#{membreController.selected.photo}" title="#{bundle.EditMembreTitle_photo}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{membreController.selected.username}" title="#{bundle.EditMembreTitle_username}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_last_connected}" for="last_connected" />
+                    <h:inputText id="last_connected" value="#{membreController.selected.last_connected}" title="#{bundle.EditMembreTitle_last_connected}" />
+                    <h:outputLabel value="#{bundle.EditMembreLabel_role}" for="role" />
+                    <h:inputText id="role" value="#{membreController.selected.role}" title="#{bundle.EditMembreTitle_role}" />
+                </h:panelGrid>
+                <h:commandLink action="#{membreController.update}" value="#{bundle.EditMembreSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditMembreViewLink}"/>
+                <br />
+                <h:commandLink action="#{membreController.prepareList}" value="#{bundle.EditMembreShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditMembreIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

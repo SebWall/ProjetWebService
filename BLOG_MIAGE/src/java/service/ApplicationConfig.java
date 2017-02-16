@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author sebastien
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("resources")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -29,6 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(commun.NewCrossOriginResourceSharingFilter.class);
         resources.add(service.ArticleFacadeREST.class);
         resources.add(service.CommentaireFacadeREST.class);
         resources.add(service.MembreFacadeREST.class);

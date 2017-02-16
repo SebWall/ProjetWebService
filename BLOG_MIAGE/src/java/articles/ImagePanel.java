@@ -11,7 +11,6 @@ package commun;
  * @author sebastien
  */
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 
@@ -28,6 +27,7 @@ public class ImagePanel extends JPanel implements Serializable {
     public Image getImage(Image image){
         return image;
     }
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g); //paint background
         if (image != null) { //there is a picture: draw it
